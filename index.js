@@ -5,19 +5,62 @@ const { criarFerramentas } = require("./ferramentas/criarFerramenta");
 const { lerFerramenta } = require("./ferramentas/lerFerramentas");
 const { atualizarFerramenta } = require("./ferramentas/atualizarFerramenta");
 const { deletarFerramentas } = require("./ferramentas/deletarFerramenta");
+const { ferramentas } = require("./ferramentas/ferramentas");
 
 
-criarFerramentas("a13207", "alicate", "pressão","14/09/2021", "apto", "almoxarifado", "xxx")
-criarFerramentas("a14608", "chave torquez", "auto", "07/08/2017", "apto", "almoxarifado", "oficina do paulo"  )
-criarFerramentas("a152", "chave de filtro", "auto", "07/06/2022", "apto", "almoxarifado", "xxx" )
 
-lerFerramenta()
+function exibirMenu() {
+    console.log("======================")
+    console.log("1-criar ferramentas ")
+    console.log("2-atualizar ferramenta")
+    console.log("3-deletar ferramentas")
+    console.log("4-ler ferramenta")
+    console.log("5-sair do sistema")
+    console.log("====================")
+}
 
 
-// deletarFerramentas("a13207")
+let opcao;
+do {
+    exibirMenu()
+    opcao = parseInt(prompt("digite uma opção"));
+    let id;
+    switch (opcao) {
+        case 1:
+             id = prompt("digite o id:");
+            let nome = prompt("digite o nome da ferramenta:");
+            let tipo = prompt("digite o tipo de ferramenta:");
+            let dataCompra = prompt("digite a data da compra:");
+            let status = prompt("digite o status:");
+            let localizacao = prompt("digite a localizacão:");
+            let alocadoPara = prompt("digite alocado para qual empresa:")
+            criarFerramentas(id, nome, tipo, dataCompra,status, localizacao, alocadoPara);
+            listarFerramenta()
+            break;
+        case 2:
+            id = prompt("digite o id:");
+            let novoNome = prompt("digite o novoNome da ferramenta:");
+            let novoTipo = prompt("digite o novoTipo de ferramenta:");
+            let novoTelefone = prompt("digite o novo telefone do aluno;");
+            editarAluno(matricula, novoNome, novoEmail, novoTelefone);
+            lerFerramenta();
+            break;
+        case 3:
+            id = prompt("digite o id:");
+            excluirFerramenta(ferramentas)
+            console.log("excluindo ferramentas...")
+            break;
+        case 4:
+            lerFerramenta()
+            break;
+        case 5:
+            console.log("saindo do sistema...")
+            break;
+        default:
+            console.log("valor invalido")
+            break
+    }
+} while (opcao !== 5);
 
-// lerFerramenta()
 
-// atualizarFerramenta("a13207","boca-L17","multi-uso","18.08.2024","apto", "almoxarifado","oficina central")
 
-lerFerramenta()
