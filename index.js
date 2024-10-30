@@ -39,7 +39,7 @@ do {
         localizacao,
         alocadoPara
       );
-      listarFerramenta();
+      lerFerramenta();
       break;
     case 2:
       id = prompt("digite o id:");
